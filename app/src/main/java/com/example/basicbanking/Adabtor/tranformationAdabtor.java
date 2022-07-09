@@ -42,7 +42,7 @@ public class tranformationAdabtor extends RecyclerView.Adapter<tranformationAdab
 
         holder.nameto.setText(m.getName());
 
-        holder.money.setText("" + CList.get(position).getMoneytransormed());
+        holder.money.setText("" + CList.get(position).getMoneytransormed()+" $");
     }
 
     @Override

@@ -16,9 +16,9 @@ public interface TransformMoneyDOA {
 
     @Query("delete from TransformMoney")
     void DeleteAll();
-//
-//    @Query("select * from TransformMoney")
-//    List<ModelTranformMoney> DBList();
+
+    @Query("select * from TransformMoney")
+    List<ModelTranformMoney> DBList();
 
     @Query("select * from TransformMoney where idfrom = :id")
     List<ModelTranformMoney> DBList(int id);

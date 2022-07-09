@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btm_customerPage" />
+        app:layout_constraintTop_toBottomOf="@+id/btm_TransformationPage" />
 
     <TextView
         android:id="@+id/CDeamil"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btm_customerPage"
+        android:id="@+id/btm_TransformationPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

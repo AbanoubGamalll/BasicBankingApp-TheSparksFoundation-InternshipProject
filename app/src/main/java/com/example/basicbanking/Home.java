@@ -19,7 +19,13 @@ public class Home extends AppCompatActivity {
 
     public void GotoCustomerPage(View view) {
         Toast.makeText(this, "All Customer", Toast.LENGTH_SHORT).show();
-        Intent i =new Intent(this,AllCustomerPage.class);
+        Intent i = new Intent(this, AllCustomerPage.class);
+        startActivity(i);
+    }
+
+    public void GotoTransformationPage(View view) {
+        Toast.makeText(this, "All Transformation", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, AllTransformationPage.class);
         startActivity(i);
     }
 }
