@@ -35,7 +35,6 @@ public class AllCustomerPage extends AppCompatActivity implements onClickRecycle
 
         db = Room.databaseBuilder(getApplicationContext(), CustomerDatabase.class, "Customer").allowMainThreadQueries().build();
 
-       // init();
 
         list = db.customerDOA().DBList();
 
