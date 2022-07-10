@@ -65,18 +65,26 @@ public class TransferMonypage extends AppCompatActivity implements onClickRecycl
             try {
                 String xx = editTextNumber.getText().toString();
                 int x = Integer.parseInt(xx);
-                Model mlTO = db.customerDOA().GetCustomer(id);
-                mlTO.setMoney(mlTO.getMoney() + x);
-                MLFrom.setMoney(MLFrom.getMoney() - x);
-                db.customerDOA().UpdateDate(MLFrom);
-                db.customerDOA().UpdateDate(mlTO);
-                //Save
-                TransfromMoneyDatabase Tdb = Room.databaseBuilder(getApplicationContext(), TransfromMoneyDatabase.class, "TransformMoney").allowMainThreadQueries().build();
-                Tdb.transformMoneyDOA().InsertTransfromation(new ModelTranformMoney(MLFrom.getId(),x,id));
-                /////
                 Intent i = new Intent(this, Home.class);
-                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+
+                if (x > MLFrom.getMoney() || x<=0) {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Model mlTO = db.customerDOA().GetCustomer(id);
+                    mlTO.setMoney(mlTO.getMoney() + x);
+
+                    MLFrom.setMoney(MLFrom.getMoney() - x);
+                    db.customerDOA().UpdateDate(MLFrom);
+                    db.customerDOA().UpdateDate(mlTO);
+                    //Save
+                    TransfromMoneyDatabase Tdb = Room.databaseBuilder(getApplicationContext(), TransfromMoneyDatabase.class, "TransformMoney").allowMainThreadQueries().build();
+                    Tdb.transformMoneyDOA().InsertTransfromation(new ModelTranformMoney(MLFrom.getId(), x, id));
+                    /////
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                }
                 startActivity(i);
+                finish();
             } catch (Exception e) {
                 Toast.makeText(this, "Write good Number", Toast.LENGTH_SHORT).show();
             }

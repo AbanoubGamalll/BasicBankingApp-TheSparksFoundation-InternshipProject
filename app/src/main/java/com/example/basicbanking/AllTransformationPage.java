@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.basicbanking.Adabtor.CustomerAdapter;
 import com.example.basicbanking.Adabtor.tranformationAdabtor;
@@ -28,12 +29,13 @@ public class AllTransformationPage extends AppCompatActivity {
 
         TransfromMoneyDatabase Tdb = Room.databaseBuilder(getApplicationContext(), TransfromMoneyDatabase.class, "TransformMoney").allowMainThreadQueries().build();
         CustomerDatabase Cdb = Room.databaseBuilder(getApplicationContext(), CustomerDatabase.class, "Customer").allowMainThreadQueries().build();
-
-
         list = Tdb.transformMoneyDOA().DBList();
+        if (list.size()==0)
+            Toast.makeText(this, "No Transformation Found", Toast.LENGTH_SHORT).show();
         recyclerView = findViewById(R.id.ResyclerViewAllTran);
         adapter = new tranformationAdabtor(list, Cdb);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
     }
 }
